@@ -58,7 +58,7 @@ public class StringStringCodec extends TypeDefinitionAwareCodec<String, StringTy
         if (stringRepresentation == null) {
             return null;
         }
-        validate(stringRepresentation);
+        //validate(stringRepresentation);
         return stringRepresentation;
     }
 
