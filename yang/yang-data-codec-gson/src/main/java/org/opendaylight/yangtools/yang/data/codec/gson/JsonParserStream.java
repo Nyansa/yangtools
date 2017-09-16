@@ -217,6 +217,10 @@ public final class JsonParserStream implements Closeable, Flushable {
                     parentSchema = ((YangModeledAnyXmlSchemaNode) parentSchema).getSchemaOfAnyXmlData();
                 }
                 final NamespaceAndName namespaceAndName = resolveNamespace(jsonElementName, parentSchema);
+                if (namespaceAndName == null) {
+                    in.skipValue();
+                    continue;
+                }
                 final String localName = namespaceAndName.getName();
                 addNamespace(namespaceAndName.getUri());
                 if (namesakes.contains(jsonElementName)) {
@@ -315,7 +319,8 @@ public final class JsonParserStream implements Closeable, Flushable {
             } else if (potentialUris.size() > 1) {
                 throw new IllegalStateException("Choose suitable module name for element "+nodeNamePart+":"+toModuleNames(potentialUris));
             } else if (potentialUris.isEmpty()) {
-                throw new IllegalStateException("Schema node with name "+nodeNamePart+" wasn't found under "+dataSchemaNode.getQName()+".");
+                //throw new IllegalStateException("Schema node with name "+nodeNamePart+" wasn't found under "+dataSchemaNode.getQName()+".");
+                return null;
             }
         }
 
