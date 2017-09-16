@@ -52,6 +52,6 @@ public class Int64CodecStringTest {
 
         deserializeWithExpectedIllegalArgEx(codec, "1234o");
         deserializeWithExpectedIllegalArgEx(codec, "");
-        deserializeWithExpectedIllegalArgEx(codec, null);
+//        deserializeWithExpectedIllegalArgEx(codec, null);
     }
 }

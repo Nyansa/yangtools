@@ -55,7 +55,12 @@ final class UnionStringCodec extends TypeDefinitionAwareCodec<Object, UnionTypeD
             }
 
             try {
-                return typeAwareCodec.deserialize(stringRepresentation);
+                Object deserialized = typeAwareCodec.deserialize(stringRepresentation);
+                if (typeAwareCodec.getClass() == EnumStringCodec.class && deserialized == null) {
+                    // enum codec return null, try next codec
+                    continue;
+                }
+                return deserialized;
             } catch (final Exception e) {
                 LOG.debug("Value {} did not matched representation for {}",stringRepresentation,type,e);
                 // invalid - try the next union type.

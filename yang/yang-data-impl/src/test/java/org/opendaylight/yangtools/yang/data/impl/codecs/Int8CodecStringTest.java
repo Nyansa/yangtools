@@ -50,6 +50,6 @@ public class Int8CodecStringTest {
 
         TypeDefinitionAwareCodecTestHelper.deserializeWithExpectedIllegalArgEx(codec, "1o");
         TypeDefinitionAwareCodecTestHelper.deserializeWithExpectedIllegalArgEx(codec, "");
-        TypeDefinitionAwareCodecTestHelper.deserializeWithExpectedIllegalArgEx(codec, null);
+//        TypeDefinitionAwareCodecTestHelper.deserializeWithExpectedIllegalArgEx(codec, null);
     }
 }

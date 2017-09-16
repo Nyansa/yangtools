@@ -122,6 +122,9 @@ public abstract class AbstractIntegerStringCodec<N extends Number & Comparable<N
 
     @Override
     public final N deserialize(final String stringRepresentation) {
+        if (stringRepresentation == null) {
+            return null;
+        }
         final int base = provideBase(stringRepresentation);
         final N deserialized;
         if (base == 16) {

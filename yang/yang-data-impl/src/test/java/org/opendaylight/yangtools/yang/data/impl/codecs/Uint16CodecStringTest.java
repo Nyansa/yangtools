@@ -46,6 +46,6 @@ public class Uint16CodecStringTest {
 
         deserializeWithExpectedIllegalArgEx(codec, "1o");
         deserializeWithExpectedIllegalArgEx(codec, "");
-        deserializeWithExpectedIllegalArgEx(codec, null);
+//        deserializeWithExpectedIllegalArgEx(codec, null);
     }
 }
