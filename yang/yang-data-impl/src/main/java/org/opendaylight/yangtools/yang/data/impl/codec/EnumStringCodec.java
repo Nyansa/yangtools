@@ -34,6 +34,7 @@ public final class EnumStringCodec extends TypeDefinitionAwareCodec<String, Enum
                 // Intern the String to get wide reuse
                 final String v = pair.getName().intern();
                 b.put(v, v);
+                b.put(String.valueOf(pair.getValue()), v);
             }
             values = b.build();
         } else {
