@@ -1,2 +1,2 @@
 before_install:
-   - cp settings.xml ~/.m2/settings.xml
+   - cp ./settings.xml ~/.m2/settings.xml
