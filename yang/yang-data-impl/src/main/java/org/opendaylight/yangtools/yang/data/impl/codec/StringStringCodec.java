@@ -56,8 +56,7 @@ public class StringStringCodec extends TypeDefinitionAwareCodec<String, StringTy
     @Override
     public final String deserialize(final String stringRepresentation) {
         if (stringRepresentation == null) {
-            // FIXME: These seems buggy, but someone may be using this behaviour
-            return "";
+            return null;
         }
         validate(stringRepresentation);
         return stringRepresentation;
