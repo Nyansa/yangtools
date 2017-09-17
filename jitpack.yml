@@ -2,4 +2,5 @@ before_install:
    - cp ./settings.xml ~/.m2/settings.xml
 install:
    - echo "Running a custom install command"
-   - ./mvnw -f yang/yang-data-impl clean install -DskipTests
+   - (cd yang/yang-data-impl && ../../mvnw clean install -DskipTests)
+   - (cd yang/yang-data-codec-gson && ../../mvnw clean install -DskipTests)
